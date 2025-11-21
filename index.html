@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OctoHub — Recreated (Red-Dark Theme)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="OctoHub home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="var(--accent)"/>
+              <stop offset="1" stop-color="var(--accent-2)"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="10" fill="url(#g)" />
+        </svg>
+        <span class="brand-name">OctoHub</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#" class="nav-link">Why OctoHub</a>
+        <a href="#" class="nav-link">Features</a>
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="nav-link">Marketplace</a>
+      </nav>
+
+      <div class="header-cta">
+        <input class="search" type="search" placeholder="Search code, repositories, users..." aria-label="Search">
+        <a class="btn btn-ghost" href="login.html">Sign in</a>
+        <a class="btn btn-primary" href="signup.html">Sign up</a>
+      </div>
+
+      <!-- mobile hamburger -->
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobile-nav" class="mobile-nav" hidden>
+      <div class="mobile-inner">
+        <a href="#" class="mobile-link">Why OctoHub</a>
+        <a href="#" class="mobile-link">Features</a>
+        <a href="#" class="mobile-link">Pricing</a>
+        <a href="#" class="mobile-link">Marketplace</a>
+        <div class="mobile-actions">
+          <a class="btn btn-ghost" href="login.html">Sign in</a>
+          <a class="btn btn-primary" href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy animate-in">
+          <h1 class="reveal-up">Change is constant. Build with confidence.</h1>
+          <p class="lead reveal-up" style="--r-delay:120ms">Collaborate on code, automate workflows, and ship faster with AI-powered tools — now in a vivid red-dark theme.</p>
+          <div class="hero-actions reveal-up" style="--r-delay:220ms">
+            <a class="btn btn-cta pulse" href="signup.html">Try OctoHub free</a>
+            <a class="btn btn-outline" href="#">Explore features</a>
+          </div>
+
+          <form class="email-form reveal-up" style="--r-delay:320ms" onsubmit="event.preventDefault(); location.href='signup.html';">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" placeholder="Enter your email" type="email" required>
+            <button class="btn btn-secondary" type="submit">Sign up for free</button>
+          </form>
+        </div>
+
+        <div class="hero-visual animate-in reveal-up" style="--r-delay:420ms" aria-hidden="true">
+          <div class="code-card">
+            <div class="cc-header">
+              <span></span><span></span><span></span>
+            </div>
+            <pre><code>// OctoHub Copilot — quick example
+function greet(name) {
+  return `Hello, ${name}!`;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 class="section-title animate-in">Code • Automate • Secure • Scale</h2>
+        <div class="cards">
+          <article class="card reveal-on-scroll">
+            <h3>Copilot</h3>
+            <p>AI assistant for writing, testing and refactoring your code.</p>
+            <a class="link" href="#">Learn more →</a>
+          </article>
+
+          <article class="card reveal-on-scroll">
+            <h3>Actions</h3>
+            <p>Automate builds, tests, and deployments with CI/CD workflows.</p>
+            <a class="link" href="#">Learn more →</a>
+          </article>
+
+          <article class="card reveal-on-scroll">
+            <h3>Codespaces</h3>
+            <p>Cloud dev environments ready in seconds.</p>
+            <a class="link" href="#">Learn more →</a>
+          </article>
+
+          <article class="card reveal-on-scroll">
+            <h3>Security</h3>
+            <p>Find and fix vulnerabilities with built-in code scanning and alerts.</p>
+            <a class="link" href="#">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="customers">
+      <div class="container">
+        <p class="muted">Trusted by teams at</p>
+        <div class="logos">
+          <div class="logo-pill">Duolingo</div>
+          <div class="logo-pill">Spotify</div>
+          <div class="logo-pill">Shopify</div>
+          <div class="logo-pill">Mercedes-Benz</div>
+          <div class="logo-pill">Philips</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="container testimonial-inner">
+        <blockquote class="reveal-on-scroll">
+          <p>“OctoHub helped us onboard engineers faster and reduced repetitive tasks—our team ships higher quality code.”</p>
+          <footer>— Fabian Faulhaber, Application Manager at Mercedes-Benz</footer>
+        </blockquote>
+        <div class="test-cta animate-in">
+          <a class="btn btn-cta" href="signup.html">Get started with OctoHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="col">
+        <h4>Product</h4>
+        <a href="#">Features</a>
+        <a href="#">Security</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="col">
+        <h4>Resources</h4>
+        <a href="#">Docs</a>
+        <a href="#">Blog</a>
+        <a href="#">Community</a>
+      </div>
+      <div class="col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="col">
+        <h4>Stay connected</h4>
+        <form class="subscribe" onsubmit="event.preventDefault(); alert('Subscribed');">
+          <input placeholder="you@company.com" type="email" required>
+          <button class="btn btn-primary small" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <small>© 2025 OctoHub, Inc. — Recreated sample page</small>
+    </div>
+  </footer>
+
+  <!-- Scripts: mobile nav + reveal on scroll + reduced-motion aware -->
+  <script>
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      if (!expanded) {
+        mobileNav.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(()=> mobileNav.classList.add('open'));
+      } else {
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+        mobileNav.addEventListener('transitionend', () => mobileNav.hidden = true, { once: true });
+      }
+    });
+
+
+    if (!prefersReduced) {
+      const revealEls = document.querySelectorAll('.reveal-on-scroll, .animate-in, .reveal-up');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => obs.observe(el));
+    } else {
+
+      document.querySelectorAll('.reveal-on-scroll, .animate-in, .reveal-up').forEach(e => e.classList.add('in-view'));
+    }
+  </script>
+</body>
+</html>

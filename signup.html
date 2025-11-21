@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign up — OctoHub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="OctoHub home">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="currentColor" />
+        </svg>
+        <span class="brand-name">OctoHub</span>
+      </a>
+
+      <div class="header-cta">
+        <a class="btn btn-ghost" href="login.html">Sign in</a>
+      </div>
+
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav" hidden>
+      <div class="mobile-inner">
+        <a href="#" class="mobile-link">Why OctoHub</a>
+        <a href="#" class="mobile-link">Features</a>
+        <a href="#" class="mobile-link">Pricing</a>
+        <a href="#" class="mobile-link">Marketplace</a>
+        <div class="mobile-actions">
+          <a class="btn btn-ghost" href="login.html">Sign in</a>
+          <a class="btn btn-primary" href="signup.html">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="auth-section">
+      <div class="container auth-grid">
+        <div class="auth-info animate-in">
+          <h1>Create your account</h1>
+          <p class="lead">Join OctoHub to collaborate, automate, and ship — with powerful CI/CD, Copilot, and security tools.</p>
+
+          <ul class="benefits">
+            <li>Unlimited public repositories</li>
+            <li>Free private repositories for small teams</li>
+            <li>Built-in CI/CD and code scanning</li>
+          </ul>
+
+          <p class="muted">Already have an account? <a href="login.html" class="link">Sign in</a></p>
+        </div>
+
+        <form id="signupForm" class="auth-card reveal-on-scroll" onsubmit="handleSignup(event)" novalidate>
+          <h2>Create your account</h2>
+          <label for="fullname">Full name</label>
+          <input id="fullname" type="text" placeholder="Your full name" required>
+
+          <label for="su-email">Email</label>
+          <input id="su-email" type="email" placeholder="you@company.com" required>
+
+          <label for="su-password">Password</label>
+          <input id="su-password" type="password" placeholder="Choose a strong password" minlength="8" required>
+
+          <label class="checkbox">
+            <input type="checkbox" id="tos" required>
+            <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
+          </label>
+
+          <button class="btn btn-primary large" type="submit">Create account</button>
+
+          <div class="or">or</div>
+          <div class="socials">
+            <button type="button" class="btn btn-outline" onclick="alert('Continue with GitHub (demo)')">Continue with GitHub</button>
+            <button type="button" class="btn btn-outline" onclick="alert('Continue with Google (demo)')">Continue with Google</button>
+          </div>
+
+          <p class="muted small">By continuing, you agree to receive occasional product updates and announcements.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer compact">
+    <div class="container copyright">
+      <small>© 2025 OctoHub, Inc. — Recreated sample page</small>
+    </div>
+  </footer>
+
+  <script>
+    // reuse small helpers (mobile nav + reveal observer)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      if (!expanded) {
+        mobileNav.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(()=> mobileNav.classList.add('open'));
+      } else {
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+        mobileNav.addEventListener('transitionend', () => mobileNav.hidden = true, { once: true });
+      }
+    });
+
+    if (!prefersReduced) {
+      const revealEls = document.querySelectorAll('.reveal-on-scroll, .animate-in');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(el => obs.observe(el));
+    } else {
+      document.querySelectorAll('.reveal-on-scroll, .animate-in').forEach(e => e.classList.add('in-view'));
+    }
+
+    function handleSignup(e){
+      e.preventDefault();
+      const name = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('su-email').value.trim();
+      const pw = document.getElementById('su-password').value;
+      const tos = document.getElementById('tos').checked;
+
+      if(!name || !email || pw.length < 8 || !tos){
+        alert('Please fill all fields and accept Terms. Password must be at least 8 characters.');
+        return;
+      }
+      alert('Account created — demo. Redirecting to OctoHub...');
+      location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
